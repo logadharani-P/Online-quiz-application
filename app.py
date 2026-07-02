@@ -72,6 +72,7 @@ def result():
 def save():
     try:
         data = request.get_json()
+        print("DATA RECEIVED:",data)
 
         name = data.get('name')
         test_name = data.get('test_name')
@@ -91,6 +92,7 @@ def save():
         return jsonify({"message": "Saved successfully"}), 200
 
     except Exception as e:
+        print("ERROR:", e)
         return jsonify({"error": str(e)}), 500
 
 # =========================
