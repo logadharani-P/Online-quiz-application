@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botany</title>
+    <h3>All the best✨</h3>
+
+    <style>
+        h3 {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+            background-color: rgb(107, 116, 116);
+            margin: auto;
+            text-align: center;
+            color: rgb(231, 181, 181);
+            
+        }
+        .container {
+            display: block;
+
+
+        }
+        .box {
+            font-family:cursive;
+            width: 500px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            border-radius: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0,1);
+            background-color:white;
+            padding-bottom: 12px;
+            gap: 20px;
+            outline:2px solid blueviolet;
+
+
+
+        }
+        body{
+            background-image: url("/static/bg3.jpg");
+            background-size: contain;
+        }
+        .div{
+            box-sizing: border-box;
+        }
+        button {
+            background-color: green;
+            padding: 12px; width: 90px;
+            display: block;
+            margin: 0 auto;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            color: #ccc;
+
+        }
+        button:hover {
+            background-color:rgb(120, 230, 245);
+            cursor: pointer;
+            color: black;
+        }
+    </style>
+    <script>
+            function submit() {
+
+     const answers = {
+        q1: "A",
+        q2: "D",
+        q3: "B",
+        q4: "B",
+        q5: "C",
+        q6: "C",
+        q7: "A",
+        q8: "B",
+        q9: "A",
+        q10: "D"
+    };
+        let score = 0;
+
+    for (let question in answers) {
+
+        let selected = document.querySelector(
+            `input[name="${question}"]:checked`
+        );
+
+        if (selected && selected.value === answers[question]) {
+            score++;
+        }
+
+    }
+    let name = localStorage.getItem("name");
+    let test = "Botany Quiz";
+
+        fetch("http://127.0.0.1:5000/save", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: name,
+            test_name: test,
+            score: score
+        })
+    })
+
+    .then(response => response.json())
+    .then(data => {
+        console.log("Saved to View results:",data);
+
+        alert(
+            `Participant : ${name}
+Test : ${test}
+Score : ${score}/10`
+    );
+    window.location.href = "/result"
+     
+    })
+    .catch(error => {
+        console.error("Error:",error);
+        alert("Failed to save result!");
+    });
+
+    }
+
+    
+    </script>
+
+
+  
+</head>
+<body>
+
+
+<div class="container">
+    <div class="box">
+        <form>
+        <p>ICBN stands for</p>
+        <label>
+        <input type="radio" name="q1" value="A">International code of botanical nomenclature</input> 
+        </label>
+        <label>
+        <input type="radio" name="q1" value="B">International congress of biological name</input>
+        </label>
+        <label>
+        <input type="radio" name="q1" value="C">Indian code of botanical nomenclature </input>
+        </label>
+        <label>
+        <input type="radio" name="q1" value="D">Indian congress of biological names</input>
+        </label>
+        </form>
+    </div>
+    
+
+        <div class="box">
+        <form>
+        <p>House fly belongs to ____ family</p>
+        <label>
+        <input type="radio" name="q2" value="A">cyprinidae</input> 
+        </label>
+        <label>
+        <input type="radio" name="q2" value="B">hominidae</input>
+        </label>
+        <label>
+        <input type="radio" name="q2" value="C">calliphoridae</input>
+        </label>
+        <label>
+        <input type="radio" name="q2" value="D">muscidae</input>
+        </label>
+        </form>
+    </div>
+
+
+        <div class="box">
+        <form>
+        <p>The DNA of E.coli</p>
+        <label>
+        <input type="radio" name="q3" value="A">double stranded and linear </input> 
+        </label>
+        <label>
+        <input type="radio" name="q3" value="B">double stranded and circular</input>
+        </label>
+        <label>
+        <input type="radio" name="q3" value="C">single stranded and linear </input>
+        </label>
+        <label>
+        <input type="radio" name="q3" value="D">single stranded and circular</input>
+        </label>
+        </form>
+    </div>
+
+
+
+
+        <div class="box">
+        <form>
+        <p>Which one belongs to monera?</p>
+        <label>
+        <input type="radio" name="q4" value="A">Amoeba</input> 
+        </label>
+        <label>
+        <input type="radio" name="q4" value="B">Escherichia</input>
+        </label>
+        <label>
+        <input type="radio" name="q4" value="C">Gelidium</input>
+        </label>
+        <label>
+        <input type="radio" name="q4" value="D">Spirogyra</input>
+        </label>
+        </form>
+    </div>
+
+
+
+        <div class="box">
+        <form>
+        <p>Viruses that infect bacteria multiply and cause their lysis,are called </p>
+        <label>
+        <input type="radio" name="q5" value="A">lysozymes</input> 
+        </label>
+        <label>
+        <input type="radio" name="q5" value="B">lipolytic</input>
+        </label>
+        <label>
+        <input type="radio" name="q5" value="C">lytic</input>
+        </label>
+        <label>
+        <input type="radio" name="q5" value="D">lysogenic</input>
+        </label>
+        </form>
+    </div>
+
+
+
+
+        <div class="box">
+        <form>
+        <p>cauliflower mosaic virus contains</p>
+        <label>
+        <input type="radio" name="q6" value="A">ss RNA</input> 
+        </label>
+        <label>
+        <input type="radio" name="q6" value="B">ds RNA</input>
+        </label>
+        <label>
+        <input type="radio" name="q6" value="C">ds DNA</input>
+        </label>
+        <label>
+        <input type="radio" name="q6" value="D">ss DNA</input>
+        </label>
+        </form>
+    </div>
+
+
+    <div class="box">
+        <form>
+        <p>An example of colonial alga is</p>
+        <label>
+        <input type="radio" name="q7" value="A">volvox</input> 
+        </label>
+        <label>
+        <input type="radio" name="q7" value="B">ulothrix</input>
+        </label>
+        <label>
+        <input type="radio" name="q7" value="C">spirogyra</input>
+        </label>
+        <label>
+        <input type="radio" name="q7" value="D">chlorella</input>
+        </label>
+        </form>
+    </div>
+
+
+        <div class="box">
+        <form>
+        <p>Mannitol is the stored food in</p>
+        <label>
+        <input type="radio" name="q8" value="A">Porphyra</input> 
+        </label>
+        <label>
+        <input type="radio" name="q8" value="B">Fucus</input>
+        </label>
+        <label>
+        <input type="radio" name="q8" value="C">Gracilaria</input>
+        </label>
+        <label>
+        <input type="radio" name="q8" value="D">Chara</input>
+        </label>
+        </form>
+    </div>
+
+        <div class="box">
+        <form>
+        <p>Which one of the following is a living fossil?</p>
+        <label>
+        <input type="radio" name="q9" value="A">cycas</input> 
+        </label>
+        <label>
+        <input type="radio" name="q9" value="B">moss</input>
+        </label>
+        <label>
+        <input type="radio" name="q9" value="C">saccharomyces</input>
+        </label>
+        <label>
+        <input type="radio" name="q9" value="D">spirogyra</input>
+        </label>
+        </form>
+    </div>
+
+        <div class="box">
+        <form>
+        <p>The endosperm of gymnosperm is</p>
+        <label>
+        <input type="radio" name="q10" value="A">diploid</input> 
+        </label>
+        <label>
+        <input type="radio" name="q10" value="B">polyploid</input>
+        </label>
+        <label>
+        <input type="radio" name="q10" value="C">triploid</input>
+        </label>
+        <label>
+        <input type="radio" name="q10" value="D">haploid</input>
+        </label>
+        </form>
+    </div>
+    <br><br>
+    <div class="button">
+        <button onclick="submit()">submit</button>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn something</title>
+    <h2>Welcome!</h2>
+    <p>Here we will provide lot of articles,case studies,and so on to improve yourself</p>
+    <style>
+            body {
+            background-image: url("/static/quiz.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+        .box{
+            width: 250px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0,1);
+            background-color: white;
+
+        }
+         .container {
+            display:block;
+            
+         }
+         .box img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+
+         }  
+         .box:hover{
+            cursor: pointer;
+            color: grey;
+            background-color: rgba(224, 247, 95, 0.534);
+         }
+         h2 {
+            margin: auto;
+            text-align: center;
+            font-family: fantasy;
+         }
+         p{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: oblique;
+            text-align: center;
+            padding-top: 10px;
+         }
+        .b1 {
+            margin: auto;
+
+            color: rgb(17, 231, 17);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 15px;width: 32px;
+         }
+        button {
+            color: #160808;
+            background-color: rgb(46, 230, 46);
+            padding: 10px;width: 50px;
+            border: 1px solid;
+            border-radius: 10px;
+        }
+        button:hover{
+            color:#ccc;
+            background-color: crimson;
+            
+        }
+        a {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            text-align:center;
+            padding-bottom:10px;
+
+        }
+
+          </style>
+
+          <script>
+            function change(){
+                window.location.href="/dashboard"
+
+            }
+
+          </script>
+
+    
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+    <img src="/static/c2.jpg"><br>
+    <a href="https://www.nature.com/subjects/psychology/srep">Articles about Psychology</a><br>
+    <hr>
+    </div>
+    <div class="box">
+    <img src="/static/c1.jpg"><br>
+    <a href="https://www.mckinsey.com/capabilities/tech-and-ai/case-studies">Recent case studies about tech/AI</a><br>
+    <hr>
+    </div>
+    <div class="box">
+    <img src="/static/c3.jpg"><br>
+    <a href="https://towardsdatascience.com/">Articles about Data Science</a><br>
+    <hr>
+
+       </div>
+       <div class="box">
+        <img src="/static/c4.jpg"><br>
+        <a href="https://itihaas.ai/en/stories#stories">Histories of India</a><br>
+        <hr>
+       </div>
+       <div class="box">
+        <img src="/static/c5.jpg"><br>
+        <a href="https://archive.org/details/beginners21west00bailuoft/page/n11/mode/2up">Beginners Botany</a><br>
+        <hr>
+       </div>
+       <div class="box">
+        <img src="/static/c6.jpg"><br>
+        <a href="https://csbible.com/wp-content/uploads/2018/03/CSB_Pew_Bible_2nd_Printing.pdf">The holy bible</a><br>
+        <hr>
+       </div>
+       <div class="box">
+        <img src="/static/c7.webp"><br>
+        <a href="https://mrcet.com/ddd">Data Structures and Algorithms</a><br>
+        <hr>
+       </div>
+       <div class="b1">
+       <button onclick="change()" >back</button>
+       </div>
+    </div>
+</body>
+</html>

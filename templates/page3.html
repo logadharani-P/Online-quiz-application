@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zoology</title>
+    <h3>All the best✨</h3>
+
+    <style>
+        h3 {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+            background-color: rgb(107, 116, 116);
+            margin: auto;
+            text-align: center;
+            color: rgb(231, 181, 181);
+            
+        }
+        .container {
+            display: block;
+
+
+        }
+        .box {
+            font-family:cursive;
+            width: 500px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            border-radius: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0,1);
+            background-color:white;
+            padding-bottom: 12px;
+            gap: 20px;
+            outline:2px solid rgb(98, 175, 248);
+
+
+
+        }
+        body{
+            background-image: url("/static/bg4.jpg");
+            background-size: contain;
+        }
+        .div{
+            box-sizing: border-box;
+        }
+        button {
+            background-color: green;
+            padding: 12px; width: 90px;
+            display: block;
+            margin: 0 auto;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            color: #ccc;
+
+        }
+        button:hover {
+            background-color:rgb(120, 230, 245);
+            cursor: pointer;
+            color: black;
+        }
+    </style>
+    <script>
+        function submit() {
+
+     const answers = {
+        q1: "B",
+        q2: "B",
+        q3: "C",
+        q4: "B",
+        q5: "B",
+        q6: "A",
+        q7: "B",
+        q8: "C",
+        q9: "D",
+        q10: "B"
+    };
+        let score = 0;
+
+    for (let question in answers) {
+
+        let selected = document.querySelector(
+            `input[name="${question}"]:checked`
+        );
+
+        if (selected && selected.value === answers[question]) {
+            score++;
+        }
+
+    }
+    let name = localStorage.getItem("name");
+    let test = "Zoology Quiz";
+
+        fetch("http://127.0.0.1:5000/save", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: name,
+            test_name: test,
+            score: score
+        })
+    })
+
+    .then(response => response.json())
+    .then(data => {
+        console.log("Saved to View results:",data);
+
+        alert(
+            `Participant : ${name}
+Test : ${test}
+Score : ${score}/10`
+    );
+    window.location.href = "/result"
+     
+    })
+    .catch(error => {
+        console.error("Error:",error);
+        alert("Failed to save result!");
+    });
+
+    }
+
+    
+    </script>
+
+
+  
+</head>
+<body>
+
+
+<div class="container">
+    <div class="box">
+        <form>
+        <p>Skin is an accessory organ of respiration in</p>
+        <label>
+        <input type="radio" name="q1" value="A">humans</input> 
+        </label>
+        <label>
+        <input type="radio" name="q1" value="B">frog</input>
+        </label>
+        <label>
+        <input type="radio" name="q1" value="C">rabbit</input>
+        </label>
+        <label>
+        <input type="radio" name="q1" value="D">lizard</input>
+        </label>
+        </form>
+    </div>
+    
+
+        <div class="box">
+        <form>
+        <p>Haemoglobin is a type of </p>
+        <label>
+        <input type="radio" name="q2" value="A">carbohydrate</input> 
+        </label>
+        <label>
+        <input type="radio" name="q2" value="B">respiratory pigment</input>
+        </label>
+        <label>
+        <input type="radio" name="q2" value="C">vitamin</input>
+        </label>
+        <label>
+        <input type="radio" name="q2" value="D">skin pigment</input>
+        </label>
+        </form>
+    </div>
+
+
+        <div class="box">
+        <form>
+        <p>Carbonic enhydrase occurs in</p>
+        <label>
+        <input type="radio" name="q3" value="A">lymphocytes</input> 
+        </label>
+        <label>
+        <input type="radio" name="q3" value="B">blood plasma</input>
+        </label>
+        <label>
+        <input type="radio" name="q3" value="C">RBCs</input>
+        </label>
+        <label>
+        <input type="radio" name="q3" value="D">leucocytes</input>
+        </label>
+        </form>
+    </div>
+
+
+
+
+        <div class="box">
+        <form>
+        <p>The respiratory centre which regulates respiration is located in</p>
+        <label>
+        <input type="radio" name="q4" value="A">cerebellum</input> 
+        </label>
+        <label>
+        <input type="radio" name="q4" value="B">medulla oblongata</input>
+        </label>
+        <label>
+        <input type="radio" name="q4" value="C">cerebral peduncle</input>
+        </label>
+        <label>
+        <input type="radio" name="q4" value="D">the vagus nerve</input>
+        </label>
+        </form>
+    </div>
+
+
+
+        <div class="box">
+        <form>
+        <p>Which of the following is an occupational respiratory disorder?</p>
+        <label>
+        <input type="radio" name="q5" value="A">anthracis</input> 
+        </label>
+        <label>
+        <input type="radio" name="q5" value="B">silicosis</input>
+        </label>
+        <label>
+        <input type="radio" name="q5" value="C">botulism</input>
+        </label>
+        <label>
+        <input type="radio" name="q5" value="D">emphysema</input>
+        </label>
+        </form>
+    </div>
+
+
+
+
+        <div class="box">
+        <form>
+        <p>There is no DNA in </p>
+        <label>
+        <input type="radio" name="q6" value="A">mature RBCs</input> 
+        </label>
+        <label>
+        <input type="radio" name="q6" value="B">a mature spermatozoan</input>
+        </label>
+        <label>
+        <input type="radio" name="q6" value="C">hair root</input>
+        </label>
+        <label>
+        <input type="radio" name="q6" value="D">an enucleated ovum</input>
+        </label>
+        </form>
+    </div>
+
+
+    <div class="box">
+        <form>
+        <p>Blood group AB has</p>
+        <label>
+        <input type="radio" name="q7" value="A">no antigen</input> 
+        </label>
+        <label>
+        <input type="radio" name="q7" value="B">no antibody</input>
+        </label>
+        <label>
+        <input type="radio" name="q7" value="C">neither antigen nor antibody</input>
+        </label>
+        <label>
+        <input type="radio" name="q7" value="D">both antigen and antibody</input>
+        </label>
+        </form>
+    </div>
+
+
+        <div class="box">
+        <form>
+        <p>A person with blood group A requires blood.The blood group which can be given is</p>
+        <label>
+        <input type="radio" name="q8" value="A">A and B</input> 
+        </label>
+        <label>
+        <input type="radio" name="q8" value="B">A and AB</input>
+        </label>
+        <label>
+        <input type="radio" name="q8" value="C">A and O</input>
+        </label>
+        <label>
+        <input type="radio" name="q8" value="D">A,B,AB and O</input>
+        </label>
+        </form>
+    </div>
+
+        <div class="box">
+        <form>
+        <p>RBCs do not occur in</p>
+        <label>
+        <input type="radio" name="q9" value="A">frog</input> 
+        </label>
+        <label>
+        <input type="radio" name="q9" value="B">cow</input>
+        </label>
+        <label>
+        <input type="radio" name="q9" value="C">camel</input>
+        </label>
+        <label>
+        <input type="radio" name="q9" value="D">cockroach</input>
+        </label>
+        </form>
+    </div>
+
+        <div class="box">
+        <form>
+        <p>The heart sound 'dup' is produced when</p>
+        <label>
+        <input type="radio" name="q10" value="A">mitral valve is closed</input> 
+        </label>
+        <label>
+        <input type="radio" name="q10" value="B">semi-lunar valves at the base of aorta get closed</input>
+        </label>
+        <label>
+        <input type="radio" name="q10" value="C">tricuspid valve is opened</input>
+        </label>
+        <label>
+        <input type="radio" name="q10" value="D">mitral valve is opened</input>
+        </label>
+        </form>
+    </div>
+    <br><br>
+    <div class="button">
+        <button onclick="submit()">submit</button>
+    </div>
+</div>
+
+
+</body>
+</html>

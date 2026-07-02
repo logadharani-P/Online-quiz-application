@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <h2>Welcome!!</h2>
+    <style>
+        h2{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            text-align: center;
+            text-decoration: double;
+            background-color: rgb(205, 250, 174);
+            background-position: 20%;
+        }
+        .div {
+            border: 30px;
+            text-align: center;
+            justify-items: center;
+            padding:30%;
+            font-family: serif;
+            letter-spacing: 1cap;
+            border-radius: 6%;
+        }
+        .mine {
+            align-items: center;
+            margin: auto;
+            box-sizing: content-box;
+            padding:100px;
+            justify-content: space-around;
+            background-size: cover;
+            width: 250px;
+            background-image:url("/static/login.jpg");
+            
+
+           }
+        body {
+            background-image :url("/static/quiz.jpg");
+            background-size:cover;  
+            background-repeat: no-repeat;
+
+        }
+        button {
+            background-color: rgb(250, 250, 248);
+            size: 10px;
+            text-shadow: 10px left;
+            box-sizing: 30px;
+            cursor: pointer;
+            border: 5px solid #eee;
+            border-radius: 10px;
+            transition: 0.3s;
+
+        }
+        button:hover{
+            color:whitesmoke;
+            transform: scale(1.05s);
+            background-color: rgb(148, 3, 3);
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+    </style>
+    <script>
+        function change(){
+            window.location.href="/quiz"
+        }
+        function learn1() {
+            window.location.href="/learn1"
+        }
+        function result() {
+            window.location.href="/result"
+        }
+
+    </script>
+
+</head>
+<body>
+    <div class="mine">
+        <button onclick="change()">Take Quiz</button>
+        <br><br><hr>
+        <button onclick="result()">View Results</button>
+        <br><br><hr>
+        <button onclick="learn1()">Learn something</button>
+
+    </div>
+    
+    
+</body>
+</html>

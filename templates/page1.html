@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics</title>
+    <h3>All the best✨</h3>
+
+    <style>
+        h3 {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+            background-color: rgb(107, 116, 116);
+            margin: auto;
+            text-align: center;
+            color: rgb(231, 181, 181);
+            
+        }
+        .container {
+            display: block;
+
+
+        }
+        .box {
+            font-family:cursive;
+            width: 500px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            border-radius: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0,1);
+            background-color:white;
+            padding-bottom: 12px;
+            gap: 20px;
+            outline:2px solid rgb(195, 252, 89);
+
+
+
+        }
+        body{
+            background-image: url("/static/bg2.jpg");
+            background-size: contain;
+        }
+        .div{
+            box-sizing: border-box;
+        }
+        button {
+            background-color: green;
+            padding: 12px; width: 90px;
+            display: block;
+            margin: 0 auto;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            color: #ccc;
+
+        }
+        button:hover {
+            background-color:rgb(120, 230, 245);
+            cursor: pointer;
+            color: black;
+        }
+    </style>
+    <script>
+    
+        function submit() {
+
+     const answers = {
+        q1: "B",
+        q2: "D",
+        q3: "D",
+        q4: "D",
+        q5: "A",
+        q6: "B",
+        q7: "B",
+        q8: "A",
+        q9: "B",
+        q10: "C"
+    };
+        let score = 0;
+
+    for (let question in answers) {
+
+        let selected = document.querySelector(
+            `input[name="${question}"]:checked`
+        );
+
+        if (selected && selected.value === answers[question]) {
+            score++;
+        }
+
+    }
+    let name = localStorage.getItem("name");
+    let test = "Physics Quiz";
+
+        fetch("http://127.0.0.1:5000/save", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: name,
+            test_name: test,
+            score: score
+        })
+    })
+
+    .then(response => response.json())
+    .then(data => {
+        console.log("Saved to View results:",data);
+
+        alert(
+            `Participant : ${name}
+Test : ${test}
+Score : ${score}/10`
+    );
+    window.location.href = "/result"
+     
+    })
+    .catch(error => {
+        console.error("Error:",error);
+        alert("Failed to save result!");
+    });
+
+    }
+
+    
+    </script>
+
+
+  
+</head>
+<body>
+
+
+<div class="container">
+    <div class="box">
+        <form>
+        <p>Which of the following is a dimensional constant?</p>
+        <label>
+        <input type="radio" name="q1" value="A">Relative density</input> 
+        </label>
+        <label>
+        <input type="radio" name="q1" value="B">Gravitational constant</input>
+        </label>
+        <label>
+        <input type="radio" name="q1" value="C">refractive index</input>
+        </label>
+        <label>
+        <input type="radio" name="q1" value="D">Poisson's ratio</input>
+        </label>
+        </form>
+    </div>
+    
+
+        <div class="box">
+        <form>
+        <p>Identify the vector quantity among the following.</p>
+        <label>
+        <input type="radio" name="q2" value="A">Distance</input> 
+        </label>
+        <label>
+        <input type="radio" name="q2" value="B" >Heat</input>
+        </label>
+        <label>
+        <input type="radio" name="q2" value="C">energy</input>
+        </label>
+        <label>
+        <input type="radio" name="q2" value="D">Angular momentum</input>
+        </label>
+        </form>
+    </div>
+
+
+        <div class="box">
+        <form>
+        <p>A couple produces</p>
+        <label>
+        <input type="radio" name="q3" value="A">linear and rotational motion</input> 
+        </label>
+        <label>
+        <input type="radio" name="q3" value="B">no motion</input>
+        </label>
+        <label>
+        <input type="radio" name="q3" value="C">purely linear motion</input>
+        </label>
+        <label>
+        <input type="radio" name="q3" value="D">purely rotational motion</input>
+        </label>
+        </form>
+    </div>
+
+
+
+
+        <div class="box">
+        <form>
+        <p>The venturi-meter works on</p>
+        <label>
+        <input type="radio" name="q4" value="A">the principle of parallel axes</input> 
+        </label>
+        <label>
+        <input type="radio" name="q4" value="B">the principle of perpendicular axes </input>
+        </label>
+        <label>
+        <input type="radio" name="q4" value="C">huygen's principle</input>
+        </label>
+        <label>
+        <input type="radio" name="q4" value="D">bernoulli's principle</input>
+        </label>
+        </form>
+    </div>
+
+
+
+        <div class="box">
+        <form>
+        <p>The resistance of a discharge tube is </p>
+        <label>
+        <input type="radio" name="q5" value="A">non-ohmic</input> 
+        </label>
+        <label>
+        <input type="radio" name="q5" value="B">ohmic</input>
+        </label>
+        <label>
+        <input type="radio" name="q5" value="C">none</input>
+        </label>
+        <label>
+        <input type="radio" name="q5" value="D">both a and b</input>
+        </label>
+        </form>
+    </div>
+
+
+
+
+        <div class="box">
+        <form>
+        <p>On the basis of electrical conductivity, which one of the following material has the smallest resistivity?</p>
+        <label>
+        <input type="radio" name="q6" value="A">Germanium</input> 
+        </label>
+        <label>
+        <input type="radio" name="q6" value="B">Silver</input>
+        </label>
+        <label>
+        <input type="radio" name="q6" value="C">Glass</input>
+        </label>
+        <label>
+        <input type="radio" name="q6" value="D">silicon</input>
+        </label>
+        </form>
+    </div>
+
+
+    <div class="box">
+        <form>
+        <p>Tesla is the unit of</p>
+        <label>
+        <input type="radio" name="q7" value="A">electric field</input> 
+        </label>
+        <label>
+        <input type="radio" name="q7" value="B">magnetic field</input>
+        </label>
+        <label>
+        <input type="radio" name="q7" value="C">electric flux</input>
+        </label>
+        <label>
+        <input type="radio" name="q7" value="D">magnetic flux</input>
+        </label>
+        </form>
+    </div>
+
+
+        <div class="box">
+        <form>
+        <p>In which of the following devices,the eddy current ffect is not used?</p>
+        <label>
+        <input type="radio" name="q8" value="A">electric heater</input> 
+        </label>
+        <label>
+        <input type="radio" name="q8" value="B">induction furnace</input>
+        </label>
+        <label>
+        <input type="radio" name="q8" value="C">magnetic braking in train</input>
+        </label>
+        <label>
+        <input type="radio" name="q8" value="D">electromagnet</input>
+        </label>
+        </form>
+    </div>
+
+        <div class="box">
+        <form>
+        <p>Which color of the light has the longest wavelength?</p>
+        <label>
+        <input type="radio" name="q9" value="A">violet</input> 
+        </label>
+        <label>
+        <input type="radio" name="q9" value="B">red</input>
+        </label>
+        <label>
+        <input type="radio" name="q9" value="C">blue</input>
+        </label>
+        <label>
+        <input type="radio" name="q9" value="D">green</input>
+        </label>
+        </form>
+    </div>
+
+        <div class="box">
+        <form>
+        <p>Interference is possible in</p>
+        <label>
+        <input type="radio" name="q10" value="A">light waves only</input> 
+        </label>
+        <label>
+        <input type="radio" name="q10" value="B">sound waves only</input>
+        </label>
+        <label>
+        <input type="radio" name="q10" value="C">both light and sound waves</input>
+        </label>
+        <label>
+        <input type="radio" name="q10" value="D">neither light nor sound waves</input>
+        </label>
+        </form>
+    </div>
+    <br><br>
+    <div class="button">
+        <button onclick="submit()">submit</button>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>general knowledge</title>
+    <h3>All the best✨</h3>
+
+    <style>
+        h3 {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+            background-color: rgb(107, 116, 116);
+            margin: auto;
+            text-align: center;
+            color: rgb(231, 181, 181);
+            
+        }
+        .container {
+            display: block;
+
+
+        }
+        .box {
+            font-family:cursive;
+            width: 500px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            border-radius: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0,1);
+            background-color:white;
+            padding-bottom: 12px;
+            gap: 20px;
+            outline:2px solid rgb(89, 241, 89);
+
+
+
+        }
+        body{
+            background-image: url("/static/bg6.jpg");
+            background-size: contain;
+        }
+        .div{
+            box-sizing: border-box;
+        }
+        button {
+            background-color: green;
+            padding: 12px; width: 90px;
+            display: block;
+            margin: 0 auto;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            color: #ccc;
+
+        }
+        button:hover {
+            background-color:rgb(120, 230, 245);
+            cursor: pointer;
+            color: black;
+        }
+    </style>
+        <script>
+        function submit() {
+
+     const answers = {
+        q1: "C",
+        q2: "A",
+        q3: "C",
+        q4: "A",
+        q5: "A",
+        q6: "C",
+        q7: "B",
+        q8: "A",
+        q9: "C",
+        q10: "B"
+    };
+        let score = 0;
+
+    for (let question in answers) {
+
+        let selected = document.querySelector(
+            `input[name="${question}"]:checked`
+        );
+
+        if (selected && selected.value === answers[question]) {
+            score++;
+        }
+
+    }
+    let name = localStorage.getItem("name");
+    let test = "General Knowledge Quiz";
+
+        fetch("http://127.0.0.1:5000/save", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: name,
+            test_name: test,
+            score: score
+        })
+    })
+
+    .then(response => response.json())
+    .then(data => {
+        console.log("Saved to View results:",data);
+
+        alert(
+            `Participant : ${name}
+Test : ${test}
+Score : ${score}/10`
+    );
+    window.location.href = "/result"
+     
+    })
+    .catch(error => {
+        console.error("Error:",error);
+        alert("Failed to save result!");
+    });
+
+    }
+
+    
+    </script>
+
+
+  
+</head>
+<body>
+
+
+<div class="container">
+    <div class="box">
+        <form>
+        <p>which scripture was called his 'mother' by gandhiji?</p>
+        <label>
+        <input type="radio" name="q1" value="A">Ramayana</input> 
+        </label>
+        <label>
+        <input type="radio" name="q1" value="B">Bible</input>
+        </label>
+        <label>
+        <input type="radio" name="q1" value="C">bhagawatgita</input>
+        </label>
+        <label>
+        <input type="radio" name="q1">the holy quran</input>
+        </label>
+        </form>
+    </div>
+    
+
+        <div class="box">
+        <form>
+        <p>How many fundamental duties are in the indian constitution?</p>
+        <label>
+        <input type="radio" name="q2" value="A">11</input> 
+        </label>
+        <label>
+        <input type="radio" name="q2" value="B">9</input>
+        </label>
+        <label>
+        <input type="radio" name="q2" value="C">20</input>
+        </label>
+        <label>
+        <input type="radio" name="q2" value="D">12</input>
+        </label>
+        </form>
+    </div>
+
+
+        <div class="box">
+        <form>
+        <p>Where in india can 'mushroom' rock found?</p>
+        <label>
+        <input type="radio" name="q3" value="A">eastern ghats</input> 
+        </label>
+        <label>
+        <input type="radio" name="q3" value="B">western ghats</input>
+        </label>
+        <label>
+        <input type="radio" name="q3" value="C">thar desert</input>
+        </label>
+        <label>
+        <input type="radio" name="q3" value="D">satpura range</input>
+        </label>
+        </form>
+    </div>
+
+
+
+
+        <div class="box">
+        <form>
+        <p>Marx belonged to</p>
+        <label>
+        <input type="radio" name="q4" value="A">Germany</input> 
+        </label>
+        <label>
+        <input type="radio" name="q4" value="B">holland</input>
+        </label>
+        <label>
+        <input type="radio" name="q4" value="C">france</input>
+        </label>
+        <label>
+        <input type="radio" name="q4" value="D">britian</input>
+        </label>
+        </form>
+    </div>
+
+
+
+        <div class="box">
+        <form>
+        <p>The longest cell in the human body is</p>
+        <label>
+        <input type="radio" name="q5" value="A">nerve cell</input> 
+        </label>
+        <label>
+        <input type="radio" name="q5" value="B">muscle cell</input>
+        </label>
+        <label>
+        <input type="radio" name="q5" value="C">liver cell</input>
+        </label>
+        <label>
+        <input type="radio" name="q5" value="D">kidney cell</input>
+        </label>
+        </form>
+    </div>
+
+
+
+
+        <div class="box">
+        <form>
+        <p>Which city is known as the city of joy?</p>
+        <label>
+        <input type="radio" name="q6" value="A">delhi</input> 
+        </label>
+        <label>
+        <input type="radio" name="q6" value="B">jaipur</input>
+        </label>
+        <label>
+        <input type="radio" name="q6" value="C">kolkata</input>
+        </label>
+        <label>
+        <input type="radio" name="q6" value="D">banaras</input>
+        </label>
+        </form>
+    </div>
+
+
+    <div class="box">
+        <form>
+        <p>king of fruits_____.</p>
+        <label>
+        <input type="radio" name="q7" value="A">apple</input> 
+        </label>
+        <label>
+        <input type="radio" name="q7" value="B">mango</input>
+        </label>
+        <label>
+        <input type="radio" name="q7" value="C">grapes</input>
+        </label>
+        <label>
+        <input type="radio" name="q7" value="D">guava</input>
+        </label>
+        </form>
+    </div>
+
+
+        <div class="box">
+        <form>
+        <p>What is the currency of japan?</p>
+        <label>
+        <input type="radio" name="q8" value="A">yen</input> 
+        </label>
+        <label>
+        <input type="radio" name="q8" value="B">pound</input>
+        </label>
+        <label>
+        <input type="radio" name="q8" value="C">yuan</input>
+        </label>
+        <label>
+        <input type="radio" name="q8" value="D">rupees</input>
+        </label>
+        </form>
+    </div>
+
+        <div class="box">
+        <form>
+        <p>What is the national dish of japan?</p>
+        <label>
+        <input type="radio" name="q9" value="A">ramen</input> 
+        </label>
+        <label>
+        <input type="radio" name="q9" value="B">sukiyaki</input>
+        </label>
+        <label>
+        <input type="radio" name="q9" value="C">sushi</input>
+        </label>
+        <label>
+        <input type="radio" name="q9" value="D">curry rice</input>
+        </label>
+        </form>
+    </div>
+
+        <div class="box">
+        <form>
+        <p>Which country hosted the FIFA world cup in 2010?</p>
+        <label>
+        <input type="radio" name="q10" value="A">North america</input> 
+        </label>
+        <label>
+        <input type="radio" name="q10" value="B">South africa</input>
+        </label>
+        <label>
+        <input type="radio" name="q10" value="C">France</input>
+        </label>
+        <label>
+        <input type="radio" name="q10" value="D">Indonesia</input>
+        </label>
+        </form>
+    </div>
+    <br><br>
+    <div class="button">
+        <button onclick="submit()">submit</button>
+    </div>
+</div>
+
+
+</body>
+</html>

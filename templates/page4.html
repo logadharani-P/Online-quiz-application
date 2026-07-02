@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maths</title>
+    <h3>All the best✨</h3>
+
+    <style>
+        h3 {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+            background-color: rgb(107, 116, 116);
+            margin: auto;
+            text-align: center;
+            color: rgb(231, 181, 181);
+            
+        }
+        .container {
+            display: block;
+
+
+        }
+        .box {
+            font-family:cursive;
+            width: 500px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            border-radius: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0,1);
+            background-color:white;
+            padding-bottom: 12px;
+            gap: 20px;
+            outline:2px solid rgb(39, 35, 43);
+
+
+
+        }
+        body{
+            background-image: url("/static/bg5.jpg");
+            background-size: contain;
+        }
+        .div{
+            box-sizing: border-box;
+        }
+        button {
+            background-color: green;
+            padding: 12px; width: 90px;
+            display: block;
+            margin: 0 auto;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            color: #ccc;
+
+        }
+        button:hover {
+            background-color:rgb(120, 230, 245);
+            cursor: pointer;
+            color: black;
+        }
+    </style>
+        <script>
+        function submit() {
+
+     const answers = {
+        q1: "A",
+        q2: "B",
+        q3: "A",
+        q4: "A",
+        q5: "B",
+        q6: "A",
+        q7: "D",
+        q8: "C",
+        q9: "A",
+        q10: "B"
+    };
+        let score = 0;
+
+    for (let question in answers) {
+
+        let selected = document.querySelector(
+            `input[name="${question}"]:checked`
+        );
+
+        if (selected && selected.value === answers[question]) {
+            score++;
+        }
+
+    }
+    let name = localStorage.getItem("name");
+    let test = "Maths Quiz";
+
+        fetch("http://127.0.0.1:5000/save", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: name,
+            test_name: test,
+            score: score
+        })
+    })
+
+    .then(response => response.json())
+    .then(data => {
+        console.log("Saved to View results:",data);
+
+        alert(
+            `Participant : ${name}
+Test : ${test}
+Score : ${score}/10`
+    );
+    window.location.href = "/result"
+     
+    })
+    .catch(error => {
+        console.error("Error:",error);
+        alert("Failed to save result!");
+    });
+
+    }
+
+    
+    </script>
+
+
+  
+</head>
+<body>
+
+
+<div class="container">
+    <div class="box">
+        <form>
+        <p>If a square has a perimeter of 36cm,what is the length of one side?</p>
+        <label>
+        <input type="radio" name="q1" value="A">9cm</input> 
+        </label>
+        <label>
+        <input type="radio" name="q1" value="B">10cm</input>
+        </label>
+        <label>
+        <input type="radio" name="q1" value="C">12cm</input>
+        </label>
+        <label>
+        <input type="radio" name="q1" value="D">15cm</input>
+        </label>
+        </form>
+    </div>
+    
+
+        <div class="box">
+        <form>
+        <p>what if you add 7778.1 into 0.0001?</p>
+        <label>
+        <input type="radio" name="q2" value="A">7778.0010</input> 
+        </label>
+        <label>
+        <input type="radio" name="q2" value="B">7778.1001</input>
+        </label>
+        <label>
+        <input type="radio" name="q2" value="C">7778.0011</input>
+        </label>
+        <label>
+        <input type="radio" name="q2" value="D">7779</input>
+        </label>
+        </form>
+    </div>
+
+
+        <div class="box">
+        <form>
+        <p>If 5x-7=18, what is the value of x?</p>
+        <label>
+        <input type="radio" name="q3" value="A">5</input> 
+        </label>
+        <label>
+        <input type="radio" name="q3" value="B">3</input>
+        </label>
+        <label>
+        <input type="radio" name="q3" value="C">7</input>
+        </label>
+        <label>
+        <input type="radio" name="q3" value="D">10</input>
+        </label>
+        </form>
+    </div>
+
+
+
+
+        <div class="box">
+        <form>
+        <p>multiply 45.5 by 2??</p>
+        <label>
+        <input type="radio" name="q4" value="A">91</input> 
+        </label>
+        <label>
+        <input type="radio" name="q4" value="B">92</input>
+        </label>
+        <label>
+        <input type="radio" name="q4" value="C">93</input>
+        </label>
+        <label>
+        <input type="radio" name="q4" value="D">94.5</input>
+        </label>
+        </form>
+    </div>
+
+
+
+        <div class="box">
+        <form>
+        <p>simplify:5(3x-4)-2(2x+3)</p>
+        <label>
+        <input type="radio" name="q5" value="A">13x-23</input> 
+        </label>
+        <label>
+        <input type="radio" name="q5" value="B">11x-26</input>
+        </label>
+        <label>
+        <input type="radio" name="q5" value="C">13x-26</input>
+        </label>
+        <label>
+        <input type="radio" name="q5" value="D">15x-26</input>
+        </label>
+        </form>
+    </div>
+
+
+
+
+        <div class="box">
+        <form>
+        <p>110 divided by 10 is</p>
+        <label>
+        <input type="radio" name="q6" value="A">11</input> 
+        </label>
+        <label>
+        <input type="radio" name="q6" value="B">10</input>
+        </label>
+        <label>
+        <input type="radio" name="q6" value="C">5</input>
+        </label>
+        <label>
+        <input type="radio" name="q6" value="D">None</input>
+        </label>
+        </form>
+    </div>
+
+
+    <div class="box">
+        <form>
+        <p>Solve:300-(150+150)</p>
+        <label>
+        <input type="radio" name="q7" value="A">150</input> 
+        </label>
+        <label>
+        <input type="radio" name="q7" value="B">300</input>
+        </label>
+        <label>
+        <input type="radio" name="q7" value="C">40</input>
+        </label>
+        <label>
+        <input type="radio" name="q7" value="D">0</input>
+        </label>
+        </form>
+    </div>
+
+
+        <div class="box">
+        <form>
+        <p>The square root of 5 is</p>
+        <label>
+        <input type="radio" name="q8" value="A">2.42</input> 
+        </label>
+        <label>
+        <input type="radio" name="q8" value="B">2.11</input>
+        </label>
+        <label>
+        <input type="radio" name="q8" value="C">2.23</input>
+        </label>
+        <label>
+        <input type="radio" name="q8" value="D">2.47</input>
+        </label>
+        </form>
+    </div>
+
+        <div class="box">
+        <form>
+        <p>27 is a pefect cube.</p>
+        <label>
+        <input type="radio" name="q9" value="A">True</input> 
+        </label>
+        <label>
+        <input type="radio" name="q9" value="B">False</input>
+        </label>
+        
+        </form>
+    </div>
+
+        <div class="box">
+        <form>
+        <p>Solve:24-8+2</p>
+        <label>
+        <input type="radio" name="q10" value="A">12</input> 
+        </label>
+        <label>
+        <input type="radio" name="q10" value="B">14</input>
+        </label>
+        <label>
+        <input type="radio" name="q10" value="C">6</input>
+        </label>
+        <label>
+        <input type="radio" name="q10" value="D">13</input>
+        </label>
+        </form>
+    </div>
+    <br><br>
+    <div class="button">
+        <button onclick="submit()">submit</button>
+    </div>
+</div>
+
+
+</body>
+</html>

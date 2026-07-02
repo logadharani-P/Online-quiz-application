@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz Application</title>
+
+    
+    <style>
+        h2{
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            text-decoration: rgb(209, 213, 218);
+            color: aliceblue;
+
+        }
+        .div {
+            text-align: center;
+            justify-content: center;
+            justify-items: center;
+            background-clip: border-box;
+            
+        }
+        .order{
+            margin: auto;
+            border: 25%;
+            align-items: center;
+            text-align: center;
+            padding: 70px;width: 300px;
+            box-sizing: content-box;
+            position: relative;
+            margin-top: 70px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url("/static/gradient-abstract-background-with-different-shapes_23-2149110297.avif");
+            border: 1px solid #fee;
+            border-radius: 12px;
+        }
+        button{
+            background-color: rgb(31, 122, 23);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: aliceblue;
+            border: 1px solid ;
+            border-radius: 10px;
+            
+        }
+        button:hover{
+            background-color: rgb(166, 245, 245);
+            color: black;
+            cursor: pointer;
+        }
+        body {
+            background-image: url("/static/quiz.jpg");
+            background-size: cover;
+        }
+        label {
+            color: aliceblue;
+        }
+        input {
+            border: 2px solid rgb(193, 224, 145);
+            border-radius: 15px;
+            padding: 7px; width: 170px;
+        }
+    </style>
+    <script>
+        function change() {
+            let name=document.getElementById("name").value.trim();
+            let email=document.getElementById("email").value.trim();
+            let password=document.getElementById("password").value;
+
+            if (name=="" || email=="" || password==""){
+                alert("Please fill all fields.");
+                return;
+            }        
+            let emailpattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if(!emailpattern.test(email)){
+                alert("Please enter a valid email");
+                return;
+            }
+
+            if(password.length<6){
+                alert("Password must contain atleast 6 characters.");
+                return;
+
+            }
+            localStorage.setItem("name",name);
+            localStorage.setItem("email",email);
+            localStorage.setItem("password",password);
+            alert("Login successful!");
+            window.location.href="/dashboard";
+
+        }
+
+        
+    </script>
+     
+</head>
+<body>
+    <div class="order">
+        <hr>
+        <h2>Online Quiz Application</h2><br>
+        <label> Name </label><br><br>
+        <input type="text" id="name" placeholder="Enter your name" ><br><br>
+        <label> Email</label><br><br>
+        <input type="email" id="email" placeholder="Enter your email"><br><br>
+        <label> Password </label><br><br>
+        <input type="password" id="password" placeholder="Enter your password"><br><br><br>
+        <button onclick="change()">Login</button>
+        <hr>
+    </div>
+    
+</body>
+</html>
