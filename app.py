@@ -11,7 +11,7 @@ CORS(app)
 # =========================
 def get_db():
         return mysql.connector.connect(
-        host="mysql.railway.internal",
+        host="mysql://root:OjQjAuMykudnPWHfhhrSWnnNUvyTJYMu@hayabusa.proxy.rlwy.net:50276/railway",
         user="root",
         password="OjQjAuMykudnPWHfhhrSWnnNUvyTJYMu",
         database="railway",
