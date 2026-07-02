@@ -33,7 +33,7 @@
   <tbody id="data"></tbody>
 </table>
 <script>
-fetch("/save/results")
+fetch("/save")
   .then(response => response.json())
   .then(data => {
     localStorage.setItem("results", JSON.stringify(data));
