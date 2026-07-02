@@ -98,7 +98,7 @@ def save():
 # =========================
 # GET RESULTS
 # =========================
-@app.route('/results', methods=['GET'])
+@app.route('/save/results', methods=['GET'])
 def results():
     db = get_db()
     cursor = db.cursor()
