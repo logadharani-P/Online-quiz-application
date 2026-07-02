@@ -10,12 +10,13 @@ CORS(app)
 # DATABASE CONNECTION
 # =========================
 def get_db():
-    return mysql.connector.connect(
-        host="localhost",
+        return mysql.connector.connect(
+        host="mysql.railway.internal",
         user="root",
-        password="Loga@2008",
-        database="examdb"
-    )
+        password="OjQjAuMykudnPWHfhhrSWnnNUvyTJYMu",
+        database="railway",
+        port=3306
+     )
 
 # =========================
 # ROUTES (UNCHANGED)
