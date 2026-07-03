@@ -63,7 +63,8 @@
     </style>
     
     <script>
-    function submit() {
+    function submit(event) {
+    if(event) event.preventDefault();
 
      const answers = {
         q1: "A",
