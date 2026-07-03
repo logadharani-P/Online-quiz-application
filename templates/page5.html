@@ -92,7 +92,7 @@
     let name = localStorage.getItem("name");
     let test = "General Knowledge Quiz";
 
-        fetch("http://127.0.0.1:5000/save", {
+        fetch(window.location.origin + "/save", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -323,6 +323,7 @@ Score : ${score}/10`
         <input type="radio" name="q10" value="D">Indonesia</input>
         </label>
         </form>
+            
     </div>
     <br><br>
     <div class="button">
