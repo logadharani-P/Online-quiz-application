@@ -68,7 +68,7 @@ def result():
 # =========================
 # SAVE RESULT (FIXED)
 # =========================
-@app.route('/save', methods=['POST'])
+@app.route('/results', methods=['POST'])
 def save():
     try:
         data = request.get_json()
