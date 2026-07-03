@@ -11,11 +11,11 @@ CORS(app)
 # =========================
 def get_db():
         return mysql.connector.connect(
-        host="mysql.railway.internal",
-        user="root",
-        password="OjQjAuMykudnPWHfhhrSWnnNUvyTJYMu",
-        database="railway",
-        port=3306
+        host=os.getenv("mysql.railway.internal"),
+        user=os.getenv("root"),
+        password=os.getenv("OjQjAuMykudnPWHfhhrSWnnNUvyTJYMu"),
+        database=os.getenv("railway"),
+        port=int(os.getenv("3306"))
      )
 
 # =========================
