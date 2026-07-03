@@ -68,32 +68,45 @@ def result():
 # =========================
 # SAVE RESULT (FIXED)
 # =========================
-@app.route('/save', methods=['POST'])
+@app.route("/save", methods=["POST"])
 def save():
     try:
-        data = request.get_json()
-        print("DATA RECEIVED:",data)
+        print("SAVE ROUTE HIT")
 
-        name = data.get('name')
-        test_name = data.get('test_name')
-        score = data.get('score')
+        data = request.get_json()
+
+        print(data)
 
         db = get_db()
+
+        print("DATABASE CONNECTED")
+
         cursor = db.cursor()
 
-        sql = "INSERT INTO results (name, test_name, score) VALUES (%s, %s, %s)"
-        cursor.execute(sql, (name, test_name, score))
+        cursor.execute(
+            "INSERT INTO results(name,test_name,score) VALUES(%s,%s,%s)",
+            (
+                data["name"],
+                data["test_name"],
+                data["score"]
+            )
+        )
 
         db.commit()
+
+        print("INSERT SUCCESS")
 
         cursor.close()
         db.close()
 
-        return jsonify({"message": "Saved successfully"}), 200
+        return jsonify({"message":"saved"})
 
     except Exception as e:
-        print("ERROR:", e)
-        return jsonify({"error": str(e)}), 500
+
+        print("DATABASE ERROR:")
+        print(e)
+
+        return jsonify({"error":str(e)}),500
 
 # =========================
 # GET RESULTS
