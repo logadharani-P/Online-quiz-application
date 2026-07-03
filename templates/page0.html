@@ -93,7 +93,7 @@
     let name = localStorage.getItem("name");
     let test = "Chemistry Quiz";
 
-    fetch("http://127.0.0.1:5000/save", {
+    fetch(window.location.origin + "/save", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
