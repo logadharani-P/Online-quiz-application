@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import mysql.connector
+import pymysql
 
 # 🔥 FIX 1: correct __name__
 app = Flask(__name__)
@@ -9,14 +10,16 @@ CORS(app)
 # =========================
 # DATABASE CONNECTION
 # =========================
-def get_db():
-        return mysql.connector.connect(
-        host=os.getenv("mysql.railway.internal"),
-        user=os.getenv("root"),
-        password=os.getenv("OjQjAuMykudnPWHfhhrSWnnNUvyTJYMu"),
-        database=os.getenv("railway"),
-        port=int(os.getenv("3306"))
-     )
+
+
+connection = pymysql.connect(
+    host="mysql-133c58e7-asilentvoice363-f8b3.l.aivencloud.com",
+    user="avnadmin",
+    password="AVNS_vF2RuVo1cn7mrsVk_Ck",
+    database="defaultdb",
+    port=20979,
+    ssl={"ssl": {}}
+)
 
 # =========================
 # ROUTES (UNCHANGED)
