@@ -1,0 +1,23 @@
+Student Table
+-------------
+user_id
+name
+email
+password
+
+Question Table
+--------------
+question_id
+question
+option_a
+option_b
+option_c
+option_d
+correct_answer
+
+Result Table
+------------
+result_id
+user_id
+score
+date
